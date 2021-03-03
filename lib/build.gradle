@@ -36,17 +36,8 @@ android {
 
                     // You can then customize attributes of the publication as shown below.
                     groupId = 'com.github.polydice'
-                    artifactId = 'final'
-                    version = '1.0.3'
-                }
-                // Creates a Maven publication called “debug”.
-                debug(MavenPublication) {
-                    // Applies the component for the debug build variant.
-                    from components.debug
-
-                    groupId = 'com.github.polydice'
-                    artifactId = 'final-debug'
-                    version = '1.0.3'
+                    artifactId = 'timbertree'
+                    version = '1.0.4'
                 }
             }
         }
