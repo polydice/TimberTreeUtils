@@ -25,6 +25,32 @@ android {
         textReport true
         xmlReport false
     }
+
+    afterEvaluate {
+        publishing {
+            publications {
+                // Creates a Maven publication called "release".
+                release(MavenPublication) {
+                    // Applies the component for the release build variant.
+                    from components.release
+
+                    // You can then customize attributes of the publication as shown below.
+                    groupId = 'com.github.polydice'
+                    artifactId = 'final'
+                    version = '1.0.3'
+                }
+                // Creates a Maven publication called “debug”.
+                debug(MavenPublication) {
+                    // Applies the component for the debug build variant.
+                    from components.debug
+
+                    groupId = 'com.github.polydice'
+                    artifactId = 'final-debug'
+                    version = '1.0.3'
+                }
+            }
+        }
+    }
 }
 
 dependencies {
@@ -36,12 +62,3 @@ dependencies {
 //    implementation 'com.github.User:Repo:Tag'
 }
 
-//publish {
-//    groupId = 'net.ypresto.timbertreeutils'
-//    artifactId = 'timbertreeutils'
-//    version = '1.0.0-SNAPSHOT'
-//    licences = ['Apache-2.0']
-//    website = 'https://github.com/ypresto/TimberTreeUtils'
-//    autoPublish = false
-//    dryRun = false
-//}
